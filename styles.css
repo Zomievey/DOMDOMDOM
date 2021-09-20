@@ -1,0 +1,21 @@
+.box {
+    height: 100px;
+    width: 100px;
+    margin: 5px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    font-size: 2em;
+}
+
+button {
+display: block;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
