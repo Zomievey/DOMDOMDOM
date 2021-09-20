@@ -18,6 +18,7 @@ window.onload = () => {
         numberOfBoxes++;
         //created a div
         let div = document.createElement("div");
+        console.log(div.id)
         //gave div the box "class" so that our CSS is applied
         div.className = "box";
         //give each box a unique ID
@@ -34,17 +35,6 @@ window.onload = () => {
 
         });
 
-
-
-
-
-
-
-
-
-
-
-
         // change backgroundcolor of square when square is clicked
 
         let colorArray = ['#7FFF00', '#008B8B', '#DA70D6', '#FFFF09', '#00B3E6',
@@ -55,24 +45,26 @@ window.onload = () => {
 
         });
 
-        // remove square after even id is dbl clicked or remove square before odd id is dbl clicked
+        // double click each square and determines if the sqaure is even or odd;
+        // if returns even it removes the sqaure to the right
+        // if returns odd it removes sqaure to the left
 
         div.addEventListener('dblclick', () => {
-            if (div.id % 2 === 0) {
-                if (div.nextSibling === null) {
+            if (div.id % 2 == 0) {
+                if (div.nextSibling) {
+                    div.nextSibling.remove();
+                } else {
                     alert('There is nothing after this square');
-                } else {
-                    div.removeChild(div.nextSibling);
                 }
-                console.log('even');
+
             } else {
-                if (div.previousSibling === null) {
-                    alert('There is nothing before this square');
+                if (div.previousSibling) {
+                    div.previousSibling.remove();
                 } else {
-                    console.log('odd');
-                    div.removeChild(div.previousSibling);
+                    alert('There is nothing before this square');
                 }
             }
+
         })
 
     });
